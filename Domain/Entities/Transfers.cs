@@ -3,7 +3,7 @@ using Domain.Enum;
 
 namespace Domain.Entities;
 
-public class Transfers
+public class Transfers : Base
 {
     public decimal Value { get; set; }
     public TransferType Type { get; set; }
