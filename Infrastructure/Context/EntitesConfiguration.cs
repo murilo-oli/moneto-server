@@ -29,5 +29,17 @@ public class EntitesConfiguration
         modelBuilder.Entity<Account>()
             .Property(a => a.CurrentBalance)
             .HasDefaultValue(0);
+
+        modelBuilder.Entity<Reminders>()
+            .HasOne(r => r.Account)
+            .WithMany(a => a.Reminders)
+            .HasForeignKey(r => r.AccountId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        //Deal with timezones
+        modelBuilder.Entity<User>().Property("RegisteredDate").HasColumnType("timestamp without time zone");
+        modelBuilder.Entity<Account>().Property("RegisteredDate").HasColumnType("timestamp without time zone");
+        modelBuilder.Entity<Transfers>().Property("RegisteredDate").HasColumnType("timestamp without time zone");
+        modelBuilder.Entity<Reminders>().Property("RegisteredDate").HasColumnType("timestamp without time zone");        
     }
 }

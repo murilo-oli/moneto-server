@@ -14,7 +14,7 @@ public class User : Base
     public string? Phone { get; set; }
     [StringLength(100)]
     public string? Email { get; set; }
-    [StringLength(20)]
+    [StringLength(64)]
     public string Password { get; set; } = default!;
     public string? Avatar {get; set;}
     public AuthType AuthType {get;set;} = 0;

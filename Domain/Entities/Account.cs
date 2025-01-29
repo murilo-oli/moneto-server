@@ -9,6 +9,7 @@ public class Account : Base
 
     public ICollection<Transfers> TransfersSent { get; set; } = new HashSet<Transfers>();
     public ICollection<Transfers> TransfersReceived { get; set; } = new HashSet<Transfers>();
+    public ICollection<Reminders> Reminders {get;set;} = new HashSet<Reminders>();
 
     public decimal UpdateCurrentBalance(decimal value, TransferType type){
         if(type == TransferType.In) this.CurrentBalance += value;

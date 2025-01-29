@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<MonetoDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("Conn")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Local")));
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 
